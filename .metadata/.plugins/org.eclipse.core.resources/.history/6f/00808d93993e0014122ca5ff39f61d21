@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Jet's Tic Tac Toe Game</string>
+    <string name="hello_world">Welcome to Tic Tac Game</string>
+    <string name="action_settings">Settings</string>
+    <string name="sair">Sair</string>
+    <string name="newgame">New Game</string>
+
+</resources>

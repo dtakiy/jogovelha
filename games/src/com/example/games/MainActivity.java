@@ -3,6 +3,7 @@ package com.example.games;
 import com.example.games.R.id;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,26 +18,26 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
 
 	public Button btnNewgame, btnExit; // botoes utilizados
-	public Button q1, q2, q3, q4, q5, q6, q7, q8, q9; // casas do jogo
-	public int turn, scoreP1, scoreP2, scoreVelha;
+	public Button q1, q2, q9, q4, q5, q6, q7, q8, q3; // casas do jogo
+	public int turn, scoreP1, scoreP2, scoreVelha, playerTurn = 1;
 	
-	public static  final int BALL = 1; // bolinha 
-	public static  final int XIS  = 2; // xizinho
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        //q3 originalmente era o q9
+        
         q1 = (Button)findViewById(id.quadrado1);
         q2 = (Button)findViewById(id.quadrado2);
-        q3 = (Button)findViewById(id.quadrado3);
+        q9 = (Button)findViewById(id.quadrado3);
         q4 = (Button)findViewById(id.quadrado4);
         q5 = (Button)findViewById(id.quadrado5);
         q6 = (Button)findViewById(id.quadrado6);
         q7 = (Button)findViewById(id.quadrado7);
         q8 = (Button)findViewById(id.quadrado8);
-        q9 = (Button)findViewById(id.quadrado9);
+        q3 = (Button)findViewById(id.quadrado9);
         btnExit = (Button)findViewById(id.sair);
         btnNewgame = (Button)findViewById(id.newgame);
         
@@ -44,6 +45,17 @@ public class MainActivity extends ActionBarActivity {
         
         btnNewgame.setOnClickListener(newGame());
         btnExit.setOnClickListener(sair());
+        
+        
+        q1.setOnClickListener(press(q1));
+        q2.setOnClickListener(press(q2));
+        q3.setOnClickListener(press(q3));
+        q4.setOnClickListener(press(q4));
+        q5.setOnClickListener(press(q5));
+        q6.setOnClickListener(press(q6));
+        q7.setOnClickListener(press(q7));
+        q8.setOnClickListener(press(q8));
+        q9.setOnClickListener(press(q9));
     
     }
     
@@ -51,10 +63,8 @@ public class MainActivity extends ActionBarActivity {
     public View.OnClickListener newGame() {
     	return new OnClickListener() {
     	public void onClick(View v) {
-    		
-    	newScore();
-    	newMach();
-    //	ModificaTextos();
+    		newScore();
+    		newMach();
     	}
     	};
     }
@@ -75,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
     	}
     
     public void newMach(){
-    		
+    		    	
     		q1.setText("");
     		q2.setText("");
     		q3.setText("");
@@ -88,6 +98,75 @@ public class MainActivity extends ActionBarActivity {
  	
     }
      	  		
+    public View.OnClickListener press(final Button btn) {
+    	return new OnClickListener() {
+    public void onClick(View v) {
+    	if (play(btn)) {
+    int vencedor = verify();
+    	if (vencedor == 1) {
+    	showMsg("O Jogador 1 Venceu a partida", "Parabéns!");
+    	newMach();
+    	}
+    		else if (vencedor == 2) {
+    	
+    			showMsg("O Jogador 2 Venceu a partida", "Parabéns!");
+    			newMach();
+    		}
+    			else if (vencedor == 3) {
+    	
+    				showMsg("A partida empatou", "Velha!");
+    				MudarJogador();
+    				newMach();
+    			}			
+    			
+    			else {
+    				MudarJogador();
+    			}
+    		}
+   }
+    };
+    	}
+    
+  public boolean play(Button btn) {
+     
+	  if (btn.getText().equals("")) {
+    	
+		  if (playerTurn == 1) {
+			  btn.setText("X");
+		  } 
+		  	else {
+		  		btn.setText("O");
+		  	}
+   return true;
+   
+	}
+    	return false;
+    	}
+    	 
+    	public void MudarJogador() {
+    		
+    	if (playerTurn == 1){
+    		
+    		playerTurn = 2;
+    	
+    	}
+    		else{
+    			playerTurn = 1;
+    		
+    		}
+    	}
+    	
+  public void showMsg(String msg,String titulo) {
+    AlertDialog.Builder builder = new
+    AlertDialog.Builder(MainActivity.this);
+    builder.setMessage(msg);
+    builder.setNeutralButton("OK", null);
+    AlertDialog dialog = builder.create();
+    dialog.setTitle(titulo);
+    dialog.show();
+   
+ }
+    
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -107,4 +186,45 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     
+    
+    public int verify() {
+    	if((q1.getText().equals("X") && q2.getText().equals("X") && q3.getText().equals("X")) ||
+    			(q4.getText().equals("X") && q5.getText().equals("X") && q6.getText().equals("X")) ||
+    			(q7.getText().equals("X") && q8.getText().equals("X") && q9.getText().equals("X")) ||
+    			(q1.getText().equals("X") && q4.getText().equals("X") && q7.getText().equals("X")) ||
+    			(q2.getText().equals("X") && q5.getText().equals("X") && q8.getText().equals("X")) ||
+    			(q9.getText().equals("X") && q6.getText().equals("X") && q3.getText().equals("X")) ||
+    			(q1.getText().equals("X") && q5.getText().equals("X") && q9.getText().equals("X")) ||
+    			(q3.getText().equals("X") && q5.getText().equals("X") && q7.getText().equals("X"))){
+    	return 1;
+    	}
+    		else if((q1.getText().equals("O") && q2.getText().equals("O") && q3.getText().equals("O")) ||
+    				(q4.getText().equals("O") && q5.getText().equals("O") && q6.getText().equals("O")) ||
+    				(q7.getText().equals("O") && q8.getText().equals("O") && q9.getText().equals("O")) ||
+    				(q1.getText().equals("O") && q4.getText().equals("O") && q7.getText().equals("O")) ||
+    				(q2.getText().equals("O") && q5.getText().equals("O") && q8.getText().equals("O")) ||
+    				(q9.getText().equals("O") && q6.getText().equals("O") && q3.getText().equals("O")) ||
+    				(q1.getText().equals("O") && q5.getText().equals("O") && q9.getText().equals("O")) ||
+    				(q3.getText().equals("O") && q5.getText().equals("O") && q7.getText().equals("O"))){
+    	return 2;
+    	}
+    	
+    				else if((!q1.getText().equals("") && !q2.getText().equals("") && !q3.getText().equals("")) &&
+    				(!q4.getText().equals("") && !q5.getText().equals("") && !q6.getText().equals("")) &&
+    				(!q7.getText().equals("") && !q8.getText().equals("") && !q9.getText().equals("")) &&
+    				(!q1.getText().equals("") && !q4.getText().equals("") && !q7.getText().equals("")) &&
+    				(!q2.getText().equals("") && !q5.getText().equals("") && !q8.getText().equals("")) &&
+    				(!q3.getText().equals("") && !q6.getText().equals("") && !q9.getText().equals("")) &&
+    				(!q1.getText().equals("") && !q5.getText().equals("") && !q9.getText().equals("")) &&
+    				(!q3.getText().equals("") && !q5.getText().equals("") && !q7.getText().equals(""))){
+    				
+    			return 3;
+    				
+    				}
+    			
+    				else
+    					return 4;
+        	 
+    	}
+
 }

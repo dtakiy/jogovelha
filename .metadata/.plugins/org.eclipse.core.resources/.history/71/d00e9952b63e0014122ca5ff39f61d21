@@ -1,0 +1,181 @@
+package com.example.games;
+
+import com.example.games.R.id;
+
+import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+
+
+public class MainActivity extends ActionBarActivity {
+
+	public Button btnNewgame, btnExit; // botoes utilizados
+	public Button q1, q2, q3, q4, q5, q6, q7, q8, q9; // casas do jogo
+	public int turn, scoreP1, scoreP2, scoreVelha, playerTurn = 0;
+	
+	public static  final int BALL = 1; // bolinha 
+	public static  final int XIS  = 2; // xizinho
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        q1 = (Button)findViewById(id.quadrado1);
+        q2 = (Button)findViewById(id.quadrado2);
+        q3 = (Button)findViewById(id.quadrado3);
+        q4 = (Button)findViewById(id.quadrado4);
+        q5 = (Button)findViewById(id.quadrado5);
+        q6 = (Button)findViewById(id.quadrado6);
+        q7 = (Button)findViewById(id.quadrado7);
+        q8 = (Button)findViewById(id.quadrado8);
+        q9 = (Button)findViewById(id.quadrado9);
+        btnExit = (Button)findViewById(id.sair);
+        btnNewgame = (Button)findViewById(id.newgame);
+        
+        // Atividades dos botoes
+        
+        btnNewgame.setOnClickListener(newGame());
+        btnExit.setOnClickListener(sair());
+    
+    }
+    
+
+    public View.OnClickListener newGame() {
+    	return new OnClickListener() {
+    	public void onClick(View v) {
+    		newScore();
+    		newMach();
+    	}
+    	};
+    }
+    
+    public View.OnClickListener sair() {
+    	return new OnClickListener() {
+    	public void onClick(View v) {
+    		
+    	finish();
+    	System.exit(0);
+    	
+    	}
+    	};
+    }
+    
+    public void newScore() {
+    	scoreP1 = 0; scoreP2 = 0; scoreVelha = 0;
+    	}
+    
+    public void newMach(){
+    		
+    		q1.setText("");
+    		q2.setText("");
+    		q3.setText("");
+    		q4.setText("");
+    		q5.setText("");
+    		q6.setText("");
+    		q7.setText("");
+    		q8.setText("");
+    		q9.setText("");
+ 	
+    }
+     	  		
+    public View.OnClickListener Jogar(final Button btn) {
+    	return new OnClickListener() {
+    public void onClick(View v) {
+    	if (play(btn)) {
+    int vencedor = VerificaVencedor();
+    	if (vencedor == 1) {
+    	
+    	showMsg("O Jogador 1 Venceu a partida", "Parabéns!");
+    	newMach();
+    	}
+    		else if (vencedor == 2) {
+    	
+    			showMsg("O Jogador 2 Venceu a partida", "Parabéns!");
+    			newMach();
+    		}
+    			else if (vencedor == 3) {
+    	
+    				showMsg("A partida empatou", "Velha!");
+    				MudarJogador();
+    				newMach();
+    			}			
+    			
+    			else {
+    				MudarJogador();
+    			}
+    		}
+    	
+   }
+    };
+    	}
+    
+  public boolean play(Button btn) {
+    	
+	  if (btn.getText().equals("")) {
+    	
+		  if (playerTurn == 1) {
+			  btn.setText("X");
+		  } 
+		  	else {
+		  		btn.setText("O");
+		  	}
+   return true;
+   
+	}
+    	return false;
+    	}
+    	 
+    	public void MudarJogador() {
+    		
+    	if (playerTurn == 1){
+    		
+    		playerTurn = 2;
+    	}
+    		else{
+    			playerTurn = 1;
+    		
+    		}
+    	}
+    	
+  public void showMsg(String msg,String titulo) {
+    AlertDialog.Builder builder = new
+    AlertDialog.Builder(MainActivity.this);
+    builder.setMessage(msg);
+    builder.setNeutralButton("OK", null);
+    AlertDialog dialog = builder.create();
+    dialog.setTitle(titulo);
+    dialog.show();
+   
+ }
+    
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+ 
+    
+}
