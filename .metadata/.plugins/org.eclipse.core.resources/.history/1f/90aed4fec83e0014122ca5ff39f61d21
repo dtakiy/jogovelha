@@ -1,0 +1,16 @@
+package com.example.games;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class Activity2 {
+
+	
+	 public void onCreate(Bundle savedInstanceState) {
+		 
+		 super.onCreate(savedInstanceState);
+		 
+		 
+	 }
+	 
+}

@@ -1,0 +1,11 @@
+package com.example.games;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class Atividade2 extends Activity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    }
+}

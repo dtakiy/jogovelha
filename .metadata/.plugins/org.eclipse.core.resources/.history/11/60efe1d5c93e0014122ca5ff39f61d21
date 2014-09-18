@@ -1,0 +1,21 @@
+package com.example.games;
+
+import com.example.games.R.id;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class Activity2 {
+
+	public Button btnp1;
+	
+	 public void onCreate(Bundle savedInstanceState) {
+		 
+		 super.onCreate(savedInstanceState);
+	     setContentView(R.layout.activity_main);
+		 
+		 
+	 }
+	 
+}
