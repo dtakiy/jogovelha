@@ -8,126 +8,104 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.games.Atividade2" >
-    
-<Button
-	    android:id="@+id/quadrado6"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBaseline="@+id/quadrado5"
-	    android:layout_alignBottom="@+id/quadrado5"
-	    android:layout_toRightOf="@+id/quadrado5"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    tools:context="com.example.games.MainActivity" >
 
-	<Button
-	    android:id="@+id/quadrado8"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBaseline="@+id/quadrado7"
-	    android:layout_alignBottom="@+id/quadrado7"
-	    android:layout_toRightOf="@+id/quadrado4"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    <Button
+        android:id="@+id/quadrado6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/quadrado5"
+        android:layout_alignBottom="@+id/quadrado5"
+        android:layout_toRightOf="@+id/quadrado5"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-	<Button
-	    android:id="@+id/quadrado3"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/quadrado9"
-	    android:layout_below="@+id/quadrado5"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    <Button
+        android:id="@+id/quadrado8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/quadrado7"
+        android:layout_alignBottom="@+id/quadrado7"
+        android:layout_toRightOf="@+id/quadrado4"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-	<Button
-	    android:id="@+id/quadrado5"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_below="@+id/quadrado1"
-	    android:layout_toRightOf="@+id/quadrado1"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    <Button
+        android:id="@+id/quadrado3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/quadrado9"
+        android:layout_below="@+id/quadrado5"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-	<Button
-	    android:id="@+id/quadrado2"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBaseline="@+id/quadrado9"
-	    android:layout_alignBottom="@+id/quadrado9"
-	    android:layout_centerHorizontal="true"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    <Button
+        android:id="@+id/quadrado5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quadrado1"
+        android:layout_toRightOf="@+id/quadrado1"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-	<Button
-	    android:id="@+id/quadrado1"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBaseline="@+id/quadrado2"
-	    android:layout_alignBottom="@+id/quadrado2"
-	    android:layout_toLeftOf="@+id/quadrado2"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    <Button
+        android:id="@+id/quadrado2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/quadrado9"
+        android:layout_alignBottom="@+id/quadrado9"
+        android:layout_centerHorizontal="true"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-	<Button
-	    android:id="@+id/quadrado9"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignTop="@+id/camporesultado"
-	    android:layout_marginTop="19dp"
-	    android:layout_toRightOf="@+id/quadrado2"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    <Button
+        android:id="@+id/quadrado1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/quadrado2"
+        android:layout_alignBottom="@+id/quadrado2"
+        android:layout_toLeftOf="@+id/quadrado2"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-	<Button
-	    android:id="@+id/quadrado4"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_above="@+id/quadrado3"
-	    android:layout_toLeftOf="@+id/quadrado5"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    <Button
+        android:id="@+id/quadrado9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/camporesultado"
+        android:layout_marginTop="19dp"
+        android:layout_toRightOf="@+id/quadrado2"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-	<Button
-	    android:id="@+id/quadrado7"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBaseline="@+id/quadrado3"
-	    android:layout_alignBottom="@+id/quadrado3"
-	    android:layout_toLeftOf="@+id/quadrado8"
-	    android:minHeight="70dip"
-	    android:minWidth="70dip" />
+    <Button
+        android:id="@+id/quadrado4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/quadrado3"
+        android:layout_toLeftOf="@+id/quadrado5"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-		<Button
-		    android:id="@+id/newgame"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignBaseline="@+id/sair"
-		    android:layout_alignBottom="@+id/sair"
-		    android:layout_alignLeft="@+id/quadrado7"
-		    android:minHeight="20dip"
-		    android:minWidth="20dip"
-		    android:text="@string/newgame" />
+    <Button
+        android:id="@+id/quadrado7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/quadrado3"
+        android:layout_alignBottom="@+id/quadrado3"
+        android:layout_toLeftOf="@+id/quadrado8"
+        android:minHeight="70dip"
+        android:minWidth="70dip" />
 
-		<Button
-		    android:id="@+id/sair"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignLeft="@+id/quadrado3"
-		    android:layout_below="@+id/quadrado3"
-		    android:layout_marginTop="44dp"
-		    android:minHeight="20dip"
-		    android:minWidth="20dip"
-		    android:text="@string/sair" />
-
-	  <Button
-	      android:id="@+id/p1"
-	      android:layout_width="wrap_content"
-	      android:layout_height="wrap_content"
-	      android:layout_below="@+id/newgame"
-	      android:layout_marginTop="26dp"
-	      android:layout_toLeftOf="@+id/sair"
-	      android:minHeight="20dip"
-	      android:minWidth="20dip"
-	      android:text="@string/p1" />
+    <Button
+        android:id="@+id/newgame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quadrado8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:minHeight="20dip"
+        android:minWidth="20dip"
+        android:text="@string/newgame" />
 
 </RelativeLayout>

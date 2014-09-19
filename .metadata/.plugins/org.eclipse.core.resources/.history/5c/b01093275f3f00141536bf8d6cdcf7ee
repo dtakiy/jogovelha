@@ -1,0 +1,22 @@
+package com.example.games;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class Aicpu extends Activity {
+
+	public Button btnNewgame, btnExit; // botoes utilizados
+	public Button q1, q2, q9, q4, q5, q6, q7, q8, q3, btnp1; // casas do jogo
+	public int turn, playerTurn = 1;
+	
+	 protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_atividade2);
+	        
+	        
+	        
+	        
+	 }
+	
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Tic Tac Game</string>
+    <string name="hello_world">Welcome to Tic Tac Game</string>
+    <string name="action_settings">Settings</string>
+    <string name="sair">Exit</string>
+    <string name="newgame">New Game</string>
+    <string name="p1">P1 Vs P2</string>
+    <string name="cpu">P1 Vs CPU</string>
+    <string name="about">About</string>
+    <string name="textabout">App made by Jet's Franco</string>
+    
+</resources>

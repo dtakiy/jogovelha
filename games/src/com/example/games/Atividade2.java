@@ -5,7 +5,6 @@ import com.example.games.R.id;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +16,7 @@ public class Atividade2 extends Activity {
 
 	public Button btnNewgame, btnExit; // botoes utilizados
 	public Button q1, q2, q9, q4, q5, q6, q7, q8, q3, btnp1; // casas do jogo
-	public int turn, scoreP1, scoreP2, scoreVelha, playerTurn = 1;
+	public int turn,playerTurn = 1;
 	
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,17 +33,13 @@ public class Atividade2 extends Activity {
         q7 = (Button)findViewById(id.quadrado7);
         q8 = (Button)findViewById(id.quadrado8);
         q3 = (Button)findViewById(id.quadrado9);
-        		;
-        btnExit = (Button)findViewById(id.sair);
+        		
         btnNewgame = (Button)findViewById(id.newgame);
-        btnp1 = (Button)findViewById(id.p1);
         
         // Atividades dos botoes
         
         btnNewgame.setOnClickListener(newGame());
-        btnExit.setOnClickListener(sair());
-    
-        
+
         q1.setOnClickListener(press(q1));
         q2.setOnClickListener(press(q2));
         q3.setOnClickListener(press(q3));
@@ -60,26 +55,13 @@ public class Atividade2 extends Activity {
     public View.OnClickListener newGame() {
     	return new OnClickListener() {
     	public void onClick(View v) {
-    		newScore();
+
     		newMach();
     	}
     	};
     }
     
-    public View.OnClickListener sair() {
-    	return new OnClickListener() {
-    	public void onClick(View v) {
-    		
-    	finish();
-    	System.exit(0);
-    	}
-    	};
-    }
-    
-    public void newScore() {
-    	scoreP1 = 0; scoreP2 = 0; scoreVelha = 0;
-    	}
-    
+        
     public void newMach(){
     		    	
     		q1.setText("");
@@ -110,17 +92,18 @@ public class Atividade2 extends Activity {
     			else if (vencedor == 3) {
     	
     				showMsg("A partida empatou", "Velha!");
-    				MudarJogador();
+    				mudarJogador();
     				newMach();
     			}			
     			
     			else {
-    				MudarJogador();
+    				mudarJogador();
     			}
     		}
    }
     };
     	}
+ 
     
   public boolean play(Button btn) {
      
@@ -138,7 +121,7 @@ public class Atividade2 extends Activity {
     	return false;
     	}
     	 
-    	public void MudarJogador() {
+    	public void mudarJogador() {
     		
     	if (playerTurn == 1){
     		
